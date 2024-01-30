@@ -320,6 +320,14 @@
                               "_deployed_by_amba": true
                             },
                             "properties": {
+                                "actions": {
+                                "actionGroups": [
+                                  {
+                                    "actionGroupId": "[[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')]",
+                                    "webhookProperties": {}
+                                  }
+                                ]
+                              },
                               "displayName": "[[concat(subscription().displayName, '-VMHighCPUAlert')]",
                               "description": "Log Alert for Virtual Machine CPU",
                               "severity": "[[parameters('severity')]",

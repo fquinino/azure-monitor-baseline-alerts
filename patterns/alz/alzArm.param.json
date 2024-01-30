@@ -3,22 +3,22 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "enterpriseScaleCompanyPrefix": {
-      "value": "contoso"
+      "value": "main-management-group"
     },
     "platformManagementGroup": {
-      "value": "contoso-platform"
+      "value": "main-management-group"
     },
     "IdentityManagementGroup": {
-      "value": "contoso-identity"
+      "value": "main-management-group"
     },
     "managementManagementGroup": {
-      "value": "contoso-management"
+      "value": "main-management-group"
     },
     "connectivityManagementGroup": {
-      "value": "contoso-connectivity"
+      "value": "main-management-group"
     },
     "LandingZoneManagementGroup": {
-      "value": "contoso-landingzones"
+      "value": "main-management-group"
     },
     "enableAMBAConnectivity": {
       "value": "Yes"
@@ -74,7 +74,7 @@
           "value": ""
         },
         "ALZWebhookServiceUri": {
-          "value": ""
+          "value": "https://api.opsgenie.com/v1/json/azure?apiKey=b6cc7321-7337-44fd-bc52-f41df405049a"
         },
         "ALZWebhookObjectId": {
           "value": ""
