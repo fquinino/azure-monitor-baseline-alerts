@@ -222,6 +222,10 @@
               {
                 "field": "Microsoft.Insights/scheduledqueryrules/enabled",
                 "equals": "[[parameters('enabled')]"
+              },
+              {
+                "field": "Microsoft.Insights/ActivityLogAlerts/actions.actionGroups[*].actionGroupId",
+                "contains": " - SH-AMBA Action Group"
               }
             ]
           },
