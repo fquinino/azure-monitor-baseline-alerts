@@ -225,7 +225,7 @@
               },
               {
                 "field": "Microsoft.Insights/ActivityLogAlerts/actions.actionGroups[*].actionGroupId",
-                "contains": " - SH-AMBA Action Group"
+                "contains": " - NOC-Action Group"
               }
             ]
           },
@@ -324,13 +324,8 @@
                               "_deployed_by_amba": true
                             },
                             "properties": {
-                                "actions": {
-                                "actionGroups": [
-                                  {
-                                    "actionGroupId": "[[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')]",
-                                    "webhookProperties": {}
-                                  }
-                                ]
+                              "actions": {
+                                "actionGroups": "[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - NOC-Action Group')]"
                               },
                               "displayName": "[[concat(subscription().displayName, '-VMHighCPUAlert')]",
                               "description": "Log Alert for Virtual Machine CPU",

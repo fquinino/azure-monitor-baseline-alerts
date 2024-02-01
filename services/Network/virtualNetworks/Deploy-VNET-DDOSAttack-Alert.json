@@ -209,6 +209,9 @@
                       "_deployed_by_amba": true
                     },
                     "properties": {
+                      "actions": {
+                        "actionGroups": "[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - NOC-Action Group')]"
+                      },
                       "description": "Metric Alert for VNet DDOS Attack",
                       "severity": "[[parameters('severity')]",
                       "enabled": "[[parameters('enabled')]",

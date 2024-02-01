@@ -331,6 +331,9 @@
                               "_deployed_by_amba": true
                             },
                             "properties": {
+                              "actions": {
+                                "actionGroups": "[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - NOC-Action Group')]"
+                              },
                               "displayName": "[[concat(subscription().displayName, '-VMLowMemoryAlert')]",
                               "description": "Log Alert for Virtual Machine Memory",
                               "severity": "[[parameters('severity')]",
