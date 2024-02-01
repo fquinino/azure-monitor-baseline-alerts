@@ -192,9 +192,6 @@
                               "_deployed_by_amba": true
                             },
                             "properties": {
-                              "actions": {
-                                "actionGroups": "[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - NOC-Action Group')]"
-                              },
                               "description": "Activity Log VPN Gateway Delete",
                               "enabled": "[[parameters('enabled')]",
                               "scopes": [
