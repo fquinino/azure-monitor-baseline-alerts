@@ -222,17 +222,6 @@
               {
                 "field": "Microsoft.Insights/scheduledqueryrules/enabled",
                 "equals": "[[parameters('enabled')]"
-<<<<<<< HEAD
-              },
-              {
-                "field": "Microsoft.Insights/ActivityLogAlerts/actions.actionGroups[*].actionGroupId",
-<<<<<<< HEAD
-                "contains": " - NOC-Action Group"
-=======
->>>>>>> parent of 4bc8a50 (added more one condition to try actiongroup)
-=======
-                "contains": " - SH-AMBA Action Group"
->>>>>>> parent of f2b5a61 (added action group)
               }
             ]
           },
