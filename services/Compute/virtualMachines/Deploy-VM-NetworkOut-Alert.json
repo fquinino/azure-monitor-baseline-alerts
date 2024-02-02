@@ -357,6 +357,11 @@
                               "_deployed_by_amba": true
                             },
                             "properties": {
+                              "actions": {
+                                "actionGroups": [
+                                  "[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')"
+                                ]
+                              },
                               "displayName": "[[concat(subscription().displayName, '-VMHighNetworkOutAlert')]",
                               "description": "Log Alert for Virtual Machine NetworkOut",
                               "severity": "[[parameters('severity')]",

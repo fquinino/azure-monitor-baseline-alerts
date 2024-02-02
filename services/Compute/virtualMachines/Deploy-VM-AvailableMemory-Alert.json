@@ -87,7 +87,7 @@
           "true",
           "false"
         ],
-        "defaultValue": "true"
+        "defaultValue": "false"
       },
       "threshold": {
         "type": "String",
@@ -115,7 +115,7 @@
           "displayName": "Effect",
           "description": "Tag name to disable monitoring resource. Set to true if monitoring should be disabled"
         },
-        "defaultValue": "MonitorDisable"
+        "defaultValue": "true"
       }
     },
     "policyRule": {

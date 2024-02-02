@@ -21,22 +21,22 @@
       "value": "main-management-group"
     },
     "enableAMBAConnectivity": {
-      "value": "Yes"
+      "value": "No"
     },
     "enableAMBAIdentity": {
-      "value": "Yes"
+      "value": "No"
     },
     "enableAMBALandingZone": {
       "value": "Yes"
     },
     "enableAMBAManagement": {
-      "value": "Yes"
+      "value": "No"
     },
     "enableAMBAServiceHealth": {
       "value": "Yes"
     },
     "enableAMBANotificationAssets": {
-      "value": "Yes"
+      "value": "No"
     },
     "telemetryOptOut": {
       "value": "No"
@@ -999,7 +999,7 @@
           "value": "disabled"
         },
         "KVRequestAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "KvAvailabilityAlertSeverity": {
           "value": "1"
@@ -1014,7 +1014,7 @@
           "value": "disabled"
         },
         "KvAvailabilityAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "KVAvailabilityThreshold": {
           "value": "20"
@@ -1032,7 +1032,7 @@
           "value": "disabled"
         },
         "KvLatencyAvailabilityAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "KvLatencyAvailabilityThreshold": {
           "value": "1000"
@@ -1050,13 +1050,13 @@
           "value": "disabled"
         },
         "KVCapacityAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "KVCapacityThreshold": {
           "value": "75"
         },
         "activityKVDeleteAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "StorageAccountAvailabilityAlertSeverity": {
           "value": "1"
@@ -1071,7 +1071,7 @@
           "value": "deployIfNotExists"
         },
         "StorageAccountAvailabilityAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "StorageAccountAvailabilityThreshold": {
           "value": "90"
@@ -1089,7 +1089,7 @@
           "value": "deployIfNotExists"
         },
         "PIPDDoSAttackAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "PIPDDoSAttackThreshold": {
           "value": "0"
@@ -1107,7 +1107,7 @@
           "value": "disabled"
         },
         "PIPPacketsInDDoSAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "PIPPacketsInDDoSThreshold": {
           "value": "40000"
@@ -1125,7 +1125,7 @@
           "value": "deployIfNotExists"
         },
         "PIPVIPAvailabilityAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "PIPVIPAvailabilityThreshold": {
           "value": "1"
@@ -1143,7 +1143,7 @@
           "value": "disabled"
         },
         "PIPBytesInDDoSAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "PIPBytesInDDoSThreshold": {
           "value": "8000000"
@@ -1164,16 +1164,16 @@
           "value": "deployIfNotExists"
         },
         "VNETDDOSAttackAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "VNETDDOSAttackThreshold": {
           "value": "1"
         },
         "activityNSGDeleteAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "activityUDRUpdateAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "VMHeartBeatRGAlertSeverity": {
           "value": "1"
@@ -1197,7 +1197,7 @@
           "value": "deployIfNotExists"
         },
         "VMHeartBeatRGAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "VMHeartBeatRGThreshold": {
           "value": "10"
@@ -1644,7 +1644,7 @@
           "value": "deployIfNotExists"
         },
         "AGWApplicationGatewayTotalTimeAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "AGWBackendLastByteResponseTimeAlertSeverity": {
           "value": "2"
@@ -1659,7 +1659,7 @@
           "value": "deployIfNotExists"
         },
         "AGWBackendLastByteResponseTimeAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "AGWCapacityUnitsAlertSeverity": {
           "value": "2"
@@ -1674,7 +1674,7 @@
           "value": "deployIfNotExists"
         },
         "AGWCapacityUnitsAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "AGWComputeUnitsAlertSeverity": {
           "value": "2"
@@ -1689,7 +1689,7 @@
           "value": "deployIfNotExists"
         },
         "AGWComputeUnitsAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "AGWCPUUtilAlertSeverity": {
           "value": "2"
@@ -1704,7 +1704,7 @@
           "value": "deployIfNotExists"
         },
         "AGWCPUUtilAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "AGWFailedRequestsAlertSeverity": {
           "value": "2"
@@ -1719,7 +1719,7 @@
           "value": "deployIfNotExists"
         },
         "AGWFailedRequestsAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "AGWResponseStatusAlertSeverity": {
           "value": "2"
@@ -1749,7 +1749,7 @@
           "value": "deployIfNotExists"
         },
         "AGWUnhealthyHostCountAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "LBDatapathAvailabilityAlertSeverity": {
           "value": "0"
@@ -1779,7 +1779,7 @@
           "value": "deployIfNotExists"
         },
         "LBGlobalBackendAvailabilityAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "LBHealthProbeStatusAlertSeverity": {
           "value": "2"
@@ -1794,7 +1794,7 @@
           "value": "deployIfNotExists"
         },
         "LBHealthProbeStatusAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "LBUsedSNATPortsAlertSeverity": {
           "value": "1"
@@ -1809,7 +1809,7 @@
           "value": "deployIfNotExists"
         },
         "LBUsedSNATPortsAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "TMEndpointHealthAlertSeverity": {
           "value": "2"
@@ -1824,7 +1824,7 @@
           "value": "deployIfNotExists"
         },
         "TMEndpointHealthAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "WSFCPUPercentageAlertSeverity": {
           "value": "2"
@@ -1839,7 +1839,7 @@
           "value": "deployIfNotExists"
         },
         "WSFCPUPercentageAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "WSFMemoryPercentageAlertSeverity": {
           "value": "2"
@@ -1854,7 +1854,7 @@
           "value": "deployIfNotExists"
         },
         "WSFMemoryPercentageAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "WSFDiskQueueLengthAlertSeverity": {
           "value": "2"
@@ -1869,7 +1869,7 @@
           "value": "deployIfNotExists"
         },
         "WSFDiskQueueLengthAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "WSFHttpQueueLengthAlertSeverity": {
           "value": "2"
@@ -1884,7 +1884,7 @@
           "value": "deployIfNotExists"
         },
         "WSFHttpQueueLengthAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "CDNPOriginHealthPercentageAlertSeverity": {
           "value": "2"
@@ -1899,7 +1899,7 @@
           "value": "deployIfNotExists"
         },
         "CDNPOriginHealthPercentageAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "CDNPOriginLatencyAlertSeverity": {
           "value": "2"
@@ -1914,7 +1914,7 @@
           "value": "disabled"
         },
         "CDNPOriginLatencyAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "CDNPPercentage4XXAlertSeverity": {
           "value": "2"
@@ -1929,7 +1929,7 @@
           "value": "deployIfNotExists"
         },
         "CDNPPercentage4XXAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "CDNPPercentage5XXAlertSeverity": {
           "value": "2"
@@ -1944,7 +1944,7 @@
           "value": "deployIfNotExists"
         },
         "CDNPPercentage5XXAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "FDBackendHealthAlertSeverity": {
           "value": "2"
@@ -1959,7 +1959,7 @@
           "value": "deployIfNotExists"
         },
         "FDBackendHealthAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "FDBackendRequestLatencyAlertSeverity": {
           "value": "2"
@@ -1974,7 +1974,7 @@
           "value": "deployIfNotExists"
         },
         "FDBackendRequestLatencyAlertState": {
-          "value": "true"
+          "value": "false"
         }
       }
     },
@@ -1993,7 +1993,7 @@
           "value": "deployIfNotExists"
         },
         "AATotalJobAlertAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "AATotalJobAlertThreshold": {
           "value": "20"
@@ -2014,7 +2014,7 @@
           "value": "deployIfNotExists"
         },
         "StorageAccountAvailabilityAlertState": {
-          "value": "true"
+          "value": "false"
         },
         "StorageAccountAvailabilityThreshold": {
           "value": "90"
@@ -2023,7 +2023,7 @@
           "value": "true"
         },
         "activityLAWKeyRegenAlertState": {
-          "value": "true"
+          "value": "false"
         }
       }
     }
