@@ -125,7 +125,7 @@
       },
       "MonitorDisable": {
         "type": "string",
-        "defaultValue": "MonitorDisable",
+        "defaultValue": "true",
         "metadata": {
           "displayName": "Monitoring disabled",
           "description": "Tag name to disable monitoring Subscription level alerts. Set to true if monitoring should be disabled"
