@@ -73,7 +73,7 @@
           "displayName": "Monitoring disabled",
           "description": "Tag name to disable monitoring  Subscription level alerts. Set to true if monitoring should be disabled"
         },
-        "defaultValue": "true"
+        "defaultValue": "MonitorDisable"
       },
       "ALZMonitorActionGroupEmail": {
         "type": "String",

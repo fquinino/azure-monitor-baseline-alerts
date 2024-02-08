@@ -107,7 +107,7 @@
           "displayName": "Effect",
           "description": "Tag name to disable monitoring resource. Set to true if monitoring should be disabled"
         },
-        "defaultValue": "true"
+        "defaultValue": "MonitorDisable"
       }
     },
     "policyRule": {
