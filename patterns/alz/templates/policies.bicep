@@ -166,6 +166,7 @@ var loadPolicyDefinitions = {
     loadTextContent('../../../services/Web/serverFarms/Deploy-WSF-DiskQueueLength-Alert.json')
     loadTextContent('../../../services/Web/serverFarms/Deploy-WSF-HttpQueueLength-Alert.json')
     loadTextContent('../../../services/Web/serverFarms/Deploy-WSF-MemoryPercentage-Alert.json')
+    loadTextContent('../../../services/Sql/servers/Deploy-Data-Space-Used-Alert.json')
   ]
   AzureCloud: []
   AzureChinaCloud: []
