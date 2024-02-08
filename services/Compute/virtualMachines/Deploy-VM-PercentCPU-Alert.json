@@ -322,7 +322,7 @@
                             "properties": {
                               "actions": {
                                 "actionGroups": [
-                                  "[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')"
+                                  "[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')]"
                                 ]
                               },
                               "displayName": "[[concat(subscription().displayName, '-VMHighCPUAlert')]",
