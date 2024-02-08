@@ -213,7 +213,7 @@
                       "severity": "[[parameters('severity')]",
                       "enabled": "[[parameters('enabled')]",
                       "scopes": [
-                        "[concat(parameters('resourceId'), '/databases/',parameters('resourceName'))]"
+                        "[[parameters('resourceId')]"
                       ],
                       "evaluationFrequency": "[[parameters('evaluationFrequency')]",
                       "windowSize": "[[parameters('windowSize')]",
