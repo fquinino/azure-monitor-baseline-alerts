@@ -1,11 +1,11 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
   "apiVersion": "2021-06-01",
-  "name": "Deploy_CPU_Usage_Alert",
+  "name": "Deploy_SQL_CPU_Usage_Alert",
   "properties": {
     "policyType": "Custom",
     "mode": "All",
-    "displayName": "Deploy Database High CPU Alert",
+    "displayName": "Deploy SQL Database High CPU Alert",
     "description": "Policy to audit/deploy Database High CPU Alert.",
     "metadata": {
       "version": "1.0.0",
@@ -203,7 +203,7 @@
                   {
                     "type": "Microsoft.Insights/metricAlerts",
                     "apiVersion": "2018-03-01",
-                    "name": "[[concat(parameters('resourceName'), '-DBHighCPUAlert')]",
+                    "name": "[[concat(parameters('resourceName'), '-SQLHighCPUAlert')]",
                     "location": "global",
                     "tags": {
                       "_deployed_by_amba": true
@@ -213,7 +213,7 @@
                       "severity": "[[parameters('severity')]",
                       "enabled": "[[parameters('enabled')]",
                       "scopes": [
-                        "[[parameters('resourceId')]"
+                        "[concat(parameters('resourceId'), '/databases/',parameters('resourceId'))]"
                       ],
                       "evaluationFrequency": "[[parameters('evaluationFrequency')]",
                       "windowSize": "[[parameters('windowSize')]",
@@ -228,8 +228,10 @@
                             "timeAggregation": "Average",
                             "criterionType": "StaticThresholdCriterion"
                           }
-                        ]
+                        ],
+                        "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
                       },
+                      "targetResourceType": "Microsoft.Sql/servers/databases",
                       "autoMitigate": "[[parameters('autoMitigate')]",
                       "parameters": {
                         "severity": {

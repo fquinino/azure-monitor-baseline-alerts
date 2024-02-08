@@ -5512,8 +5512,8 @@
         }
       },
       {
-        "policyDefinitionReferenceId": "ALZ_CPUUsageAlert",
-        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy_CPU_Usage_Alert')]",
+        "policyDefinitionReferenceId": "ALZ_SQLHighCPU",
+        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy_SQL_CPU_Usage_Alert')]"
       }
     ],
     "policyType": "Custom",
