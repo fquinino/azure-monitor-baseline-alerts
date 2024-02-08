@@ -63,7 +63,7 @@
           "PT30M",
           "PT1H"
         ],
-        "defaultValue": "PT5M"
+        "defaultValue": "PT1M"
       },
       "autoMitigate": {
         "type": "String",
@@ -95,7 +95,7 @@
           "displayName": "Threshold",
           "description": "Threshold for the alert"
         },
-        "defaultValue": "9.3458488361e&#43;11"
+        "defaultValue": "90.0"
       },
       "effect": {
         "type": "String",
@@ -146,7 +146,7 @@
               },
               {
                 "field": "Microsoft.Insights/metricAlerts/criteria.Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria.allOf[*].metricName",
-                "equals": "storage"
+                "equals": "cpu_percent"
               },
               {
                 "field": "Microsoft.Insights/metricalerts/scopes[*]",
@@ -220,12 +220,12 @@
                       "criteria": {
                         "allOf": [
                           {
-                            "name": "Storage",
+                            "name": "cpu_percent",
                             "metricNamespace": "Microsoft.Sql/servers/databases",
-                            "metricName": "storage",
+                            "metricName": "cpu_percent",
                             "operator": "GreaterThan",
                             "threshold": "[[parameters('threshold')]",
-                            "timeAggregation": "Maximum",
+                            "timeAggregation": "Average",
                             "criterionType": "StaticThresholdCriterion"
                           }
                         ]
