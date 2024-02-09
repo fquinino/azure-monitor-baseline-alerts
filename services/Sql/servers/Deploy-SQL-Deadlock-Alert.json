@@ -1,12 +1,12 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
   "apiVersion": "2021-06-01",
-  "name": "Deploy_Data_Space_Used_Alert",
+  "name": "Deploy_SQL_Deadlock_Alert",
   "properties": {
     "policyType": "Custom",
     "mode": "All",
-    "displayName": "Deploy Data Space Used Alert",
-    "description": "Policy to audit/deploy Data Space Used Alert. Not applicable to data warehouses.",
+    "displayName": "Deploy SQL Database Deadlock Alert",
+    "description": "Policy to audit/deploy Database Deadlock Alert.",
     "metadata": {
       "version": "1.0.0",
       "category": "ServerDatabases",
@@ -48,7 +48,7 @@
           "PT12H",
           "P1D"
         ],
-        "defaultValue": "PT5M"
+        "defaultValue": "PT1H"
       },
       "evaluationFrequency": {
         "type": "String",
@@ -63,7 +63,7 @@
           "PT30M",
           "PT1H"
         ],
-        "defaultValue": "PT5M"
+        "defaultValue": "PT15M"
       },
       "autoMitigate": {
         "type": "String",
@@ -88,14 +88,6 @@
           "false"
         ],
         "defaultValue": "true"
-      },
-      "threshold": {
-        "type": "String",
-        "metadata": {
-          "displayName": "Threshold",
-          "description": "Threshold for the alert"
-        },
-        "defaultValue": "9.3458488361e&#43;11"
       },
       "effect": {
         "type": "String",
@@ -146,7 +138,7 @@
               },
               {
                 "field": "Microsoft.Insights/metricAlerts/criteria.Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria.allOf[*].metricName",
-                "equals": "storage"
+                "equals": "deadlock"
               },
               {
                 "field": "Microsoft.Insights/metricalerts/scopes[*]",
@@ -193,9 +185,6 @@
                   },
                   "enabled": {
                     "type": "String"
-                  },
-                  "threshold": {
-                    "type": "String"
                   }
                 },
                 "variables": {},
@@ -203,13 +192,18 @@
                   {
                     "type": "Microsoft.Insights/metricAlerts",
                     "apiVersion": "2018-03-01",
-                    "name": "[[concat(parameters('resourceName'), '-DataSpaceUsedAlert')]",
+                    "name": "[[concat(parameters('resourceName'), '-SQLHighCPUAlert')]",
                     "location": "global",
                     "tags": {
                       "_deployed_by_amba": true
                     },
                     "properties": {
-                      "description": "Metric Alert for Data space used",
+                      "actions": {
+                        "actionGroups": [
+                          "[[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')]"
+                        ]
+                      },
+                      "description": "Metric Alert for Deadlock",
                       "severity": "[[parameters('severity')]",
                       "enabled": "[[parameters('enabled')]",
                       "scopes": [
@@ -220,16 +214,23 @@
                       "criteria": {
                         "allOf": [
                           {
-                            "name": "Storage",
+                            "alertSensitivity": "Medium",
+                            "failingPeriods": {
+                              "numberOfEvaluationPeriods": 4,
+                              "minFailingPeriodsToAlert": 4
+                            },
+                            "name": "deadlock",
                             "metricNamespace": "Microsoft.Sql/servers/databases",
-                            "metricName": "storage",
+                            "metricName": "deadlock",
                             "operator": "GreaterThan",
-                            "threshold": "[[parameters('threshold')]",
-                            "timeAggregation": "Maximum",
-                            "criterionType": "StaticThresholdCriterion"
+                            "timeAggregation": "Total",
+                            "skipMetricValidation": false,
+                            "criterionType": "DynamicThresholdCriterion"
                           }
-                        ]
+                        ],
+                        "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
                       },
+                      "targetResourceType": "Microsoft.Sql/servers/databases",
                       "autoMitigate": "[[parameters('autoMitigate')]",
                       "parameters": {
                         "severity": {
@@ -246,9 +247,6 @@
                         },
                         "enabled": {
                           "value": "[[parameters('enabled')]"
-                        },
-                        "threshold": {
-                          "value": "[[parameters('threshold')]"
                         }
                       }
                     }
@@ -276,9 +274,6 @@
                 },
                 "enabled": {
                   "value": "[[parameters('enabled')]"
-                },
-                "threshold": {
-                  "value": "[[parameters('threshold')]"
                 }
               }
             }

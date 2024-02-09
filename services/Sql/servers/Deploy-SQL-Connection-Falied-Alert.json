@@ -1,12 +1,12 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
   "apiVersion": "2021-06-01",
-  "name": "Deploy_SQL_CPU_Usage_Alert",
+  "name": "Deploy_SQL_Connection_Falied_Alert",
   "properties": {
     "policyType": "Custom",
     "mode": "All",
-    "displayName": "Deploy SQL Database High CPU Alert",
-    "description": "Policy to audit/deploy Database High CPU Alert.",
+    "displayName": "Deploy SQL Database Failed Connections Alert",
+    "description": "Policy to audit/deploy Database Failed Connections Alert.",
     "metadata": {
       "version": "1.0.0",
       "category": "ServerDatabases",
@@ -30,7 +30,7 @@
           "3",
           "4"
         ],
-        "defaultValue": "3"
+        "defaultValue": "2"
       },
       "windowSize": {
         "type": "String",
@@ -95,7 +95,7 @@
           "displayName": "Threshold",
           "description": "Threshold for the alert"
         },
-        "defaultValue": "90.0"
+        "defaultValue": "10"
       },
       "effect": {
         "type": "String",
@@ -146,7 +146,7 @@
               },
               {
                 "field": "Microsoft.Insights/metricAlerts/criteria.Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria.allOf[*].metricName",
-                "equals": "cpu_percent"
+                "equals": "connection_failed"
               },
               {
                 "field": "Microsoft.Insights/metricalerts/scopes[*]",
@@ -214,7 +214,7 @@
                           "[[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')]"
                         ]
                       },
-                      "description": "Metric Alert for CPU Usage",
+                      "description": "Metric Alert for Connection Falied",
                       "severity": "[[parameters('severity')]",
                       "enabled": "[[parameters('enabled')]",
                       "scopes": [
@@ -225,12 +225,12 @@
                       "criteria": {
                         "allOf": [
                           {
-                            "name": "cpu_percent",
+                            "name": "connection_failed",
                             "metricNamespace": "Microsoft.Sql/servers/databases",
-                            "metricName": "cpu_percent",
+                            "metricName": "connection_failed",
                             "operator": "GreaterThan",
                             "threshold": "[[parameters('threshold')]",
-                            "timeAggregation": "Average",
+                            "timeAggregation": "Total",
                             "criterionType": "StaticThresholdCriterion"
                           }
                         ],

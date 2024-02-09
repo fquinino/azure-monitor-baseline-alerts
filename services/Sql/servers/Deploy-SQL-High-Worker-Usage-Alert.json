@@ -1,12 +1,12 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
   "apiVersion": "2021-06-01",
-  "name": "Deploy_SQL_CPU_Usage_Alert",
+  "name": "Deploy_SQL_High_Worker_Usage_Alert",
   "properties": {
     "policyType": "Custom",
     "mode": "All",
-    "displayName": "Deploy SQL Database High CPU Alert",
-    "description": "Policy to audit/deploy Database High CPU Alert.",
+    "displayName": "Deploy SQL Database High Worker Usage Alert",
+    "description": "Policy to audit/deploy Database High Worker Usage Alert.",
     "metadata": {
       "version": "1.0.0",
       "category": "ServerDatabases",
@@ -30,7 +30,7 @@
           "3",
           "4"
         ],
-        "defaultValue": "3"
+        "defaultValue": "1"
       },
       "windowSize": {
         "type": "String",
@@ -48,7 +48,7 @@
           "PT12H",
           "P1D"
         ],
-        "defaultValue": "PT5M"
+        "defaultValue": "PT15M"
       },
       "evaluationFrequency": {
         "type": "String",
@@ -95,7 +95,7 @@
           "displayName": "Threshold",
           "description": "Threshold for the alert"
         },
-        "defaultValue": "90.0"
+        "defaultValue": "60"
       },
       "effect": {
         "type": "String",
@@ -146,7 +146,7 @@
               },
               {
                 "field": "Microsoft.Insights/metricAlerts/criteria.Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria.allOf[*].metricName",
-                "equals": "cpu_percent"
+                "equals": "workers_percent"
               },
               {
                 "field": "Microsoft.Insights/metricalerts/scopes[*]",
@@ -214,7 +214,7 @@
                           "[[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')]"
                         ]
                       },
-                      "description": "Metric Alert for CPU Usage",
+                      "description": "Metric Alert for High Worker Usage",
                       "severity": "[[parameters('severity')]",
                       "enabled": "[[parameters('enabled')]",
                       "scopes": [
@@ -225,9 +225,9 @@
                       "criteria": {
                         "allOf": [
                           {
-                            "name": "cpu_percent",
+                            "name": "workers_percent",
                             "metricNamespace": "Microsoft.Sql/servers/databases",
-                            "metricName": "cpu_percent",
+                            "metricName": "workers_percent",
                             "operator": "GreaterThan",
                             "threshold": "[[parameters('threshold')]",
                             "timeAggregation": "Average",

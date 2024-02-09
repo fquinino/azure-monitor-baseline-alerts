@@ -1,12 +1,12 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
   "apiVersion": "2021-06-01",
-  "name": "Deploy_SQL_CPU_Usage_Alert",
+  "name": "Deploy_SQL_Data_Space_Used_Alert",
   "properties": {
     "policyType": "Custom",
     "mode": "All",
-    "displayName": "Deploy SQL Database High CPU Alert",
-    "description": "Policy to audit/deploy Database High CPU Alert.",
+    "displayName": "Deploy Data Space Used Alert",
+    "description": "Policy to audit/deploy Data Space Used Alert. Not applicable to data warehouses.",
     "metadata": {
       "version": "1.0.0",
       "category": "ServerDatabases",
@@ -63,7 +63,7 @@
           "PT30M",
           "PT1H"
         ],
-        "defaultValue": "PT1M"
+        "defaultValue": "PT5M"
       },
       "autoMitigate": {
         "type": "String",
@@ -95,7 +95,7 @@
           "displayName": "Threshold",
           "description": "Threshold for the alert"
         },
-        "defaultValue": "90.0"
+        "defaultValue": "9.3458488361e&#43;11"
       },
       "effect": {
         "type": "String",
@@ -146,7 +146,7 @@
               },
               {
                 "field": "Microsoft.Insights/metricAlerts/criteria.Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria.allOf[*].metricName",
-                "equals": "cpu_percent"
+                "equals": "storage_percent"
               },
               {
                 "field": "Microsoft.Insights/metricalerts/scopes[*]",
@@ -203,7 +203,7 @@
                   {
                     "type": "Microsoft.Insights/metricAlerts",
                     "apiVersion": "2018-03-01",
-                    "name": "[[concat(parameters('resourceName'), '-SQLHighCPUAlert')]",
+                    "name": "[[concat(parameters('resourceName'), '-DataSpaceUsedAlert')]",
                     "location": "global",
                     "tags": {
                       "_deployed_by_amba": true
@@ -214,7 +214,7 @@
                           "[[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')]"
                         ]
                       },
-                      "description": "Metric Alert for CPU Usage",
+                      "description": "Metric Alert for Data space used",
                       "severity": "[[parameters('severity')]",
                       "enabled": "[[parameters('enabled')]",
                       "scopes": [
@@ -225,19 +225,19 @@
                       "criteria": {
                         "allOf": [
                           {
-                            "name": "cpu_percent",
+                            "name": "storage_percent",
                             "metricNamespace": "Microsoft.Sql/servers/databases",
-                            "metricName": "cpu_percent",
+                            "metricName": "storage_percent",
                             "operator": "GreaterThan",
                             "threshold": "[[parameters('threshold')]",
-                            "timeAggregation": "Average",
+                            "timeAggregation": "Minimum",
                             "criterionType": "StaticThresholdCriterion"
                           }
                         ],
                         "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
                       },
-                      "targetResourceType": "Microsoft.Sql/servers/databases",
                       "autoMitigate": "[[parameters('autoMitigate')]",
+                      "targetResourceType": "Microsoft.Sql/servers/databases",
                       "parameters": {
                         "severity": {
                           "value": "[[parameters('severity')]"

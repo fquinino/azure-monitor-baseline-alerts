@@ -166,8 +166,13 @@ var loadPolicyDefinitions = {
     loadTextContent('../../../services/Web/serverFarms/Deploy-WSF-DiskQueueLength-Alert.json')
     loadTextContent('../../../services/Web/serverFarms/Deploy-WSF-HttpQueueLength-Alert.json')
     loadTextContent('../../../services/Web/serverFarms/Deploy-WSF-MemoryPercentage-Alert.json')
-    loadTextContent('../../../services/Sql/servers/Deploy-Data-Space-Used-Alert.json')
+    loadTextContent('../../../services/Sql/servers/Deploy-SQL-Anomalous-Connection-Alert.json')
+    loadTextContent('../../../services/Sql/servers/Deploy-SQL-Connection-Falied-Alert.json')
     loadTextContent('../../../services/Sql/servers/Deploy-SQL-CPU-Usage-Alert.json')
+    loadTextContent('../../../services/Sql/servers/Deploy-SQL-Data-Space-Used-Alert.json')
+    loadTextContent('../../../services/Sql/servers/Deploy-SQL-Deadlock-Alert.json')
+    loadTextContent('../../../services/Sql/servers/Deploy-SQL-High-Worker-Usage-Alert.json')
+    loadTextContent('../../../services/Sql/servers/Deploy-SQL-Low-TempDB-Space-Alert.json')
   ]
   AzureCloud: []
   AzureChinaCloud: []

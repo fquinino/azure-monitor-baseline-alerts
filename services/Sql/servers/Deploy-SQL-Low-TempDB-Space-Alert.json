@@ -1,12 +1,12 @@
 {
   "type": "Microsoft.Authorization/policyDefinitions",
   "apiVersion": "2021-06-01",
-  "name": "Deploy_SQL_CPU_Usage_Alert",
+  "name": "Deploy_SQL_Low_TempDB_Space_Alert",
   "properties": {
     "policyType": "Custom",
     "mode": "All",
-    "displayName": "Deploy SQL Database High CPU Alert",
-    "description": "Policy to audit/deploy Database High CPU Alert.",
+    "displayName": "Deploy SQL Low TempDB Space Alert",
+    "description": "Policy to audit/deploy SQL Low TempDB Space.",
     "metadata": {
       "version": "1.0.0",
       "category": "ServerDatabases",
@@ -30,7 +30,7 @@
           "3",
           "4"
         ],
-        "defaultValue": "3"
+        "defaultValue": "1"
       },
       "windowSize": {
         "type": "String",
@@ -95,7 +95,7 @@
           "displayName": "Threshold",
           "description": "Threshold for the alert"
         },
-        "defaultValue": "90.0"
+        "defaultValue": "60"
       },
       "effect": {
         "type": "String",
@@ -146,7 +146,7 @@
               },
               {
                 "field": "Microsoft.Insights/metricAlerts/criteria.Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria.allOf[*].metricName",
-                "equals": "cpu_percent"
+                "equals": "tempdb_log_used_percent"
               },
               {
                 "field": "Microsoft.Insights/metricalerts/scopes[*]",
@@ -203,7 +203,7 @@
                   {
                     "type": "Microsoft.Insights/metricAlerts",
                     "apiVersion": "2018-03-01",
-                    "name": "[[concat(parameters('resourceName'), '-SQLHighCPUAlert')]",
+                    "name": "[[concat(parameters('resourceName'), '-DataSpaceUsedAlert')]",
                     "location": "global",
                     "tags": {
                       "_deployed_by_amba": true
@@ -214,7 +214,7 @@
                           "[[concat(subscription().Id, '/resourceGroups/', parameters('alertResourceGroupName'), '/providers/microsoft.insights/actionGroups/',subscription().displayName, ' - SH-AMBA Action Group')]"
                         ]
                       },
-                      "description": "Metric Alert for CPU Usage",
+                      "description": "Metric Alert for Low tempdb Space",
                       "severity": "[[parameters('severity')]",
                       "enabled": "[[parameters('enabled')]",
                       "scopes": [
@@ -225,19 +225,19 @@
                       "criteria": {
                         "allOf": [
                           {
-                            "name": "cpu_percent",
+                            "name": "tempdb_log_used_percent",
                             "metricNamespace": "Microsoft.Sql/servers/databases",
-                            "metricName": "cpu_percent",
+                            "metricName": "tempdb_log_used_percent",
                             "operator": "GreaterThan",
                             "threshold": "[[parameters('threshold')]",
-                            "timeAggregation": "Average",
+                            "timeAggregation": "Maximum",
                             "criterionType": "StaticThresholdCriterion"
                           }
                         ],
                         "odata.type": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria"
                       },
-                      "targetResourceType": "Microsoft.Sql/servers/databases",
                       "autoMitigate": "[[parameters('autoMitigate')]",
+                      "targetResourceType": "Microsoft.Sql/servers/databases",
                       "parameters": {
                         "severity": {
                           "value": "[[parameters('severity')]"

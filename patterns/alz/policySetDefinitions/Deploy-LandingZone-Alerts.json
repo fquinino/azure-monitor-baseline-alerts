@@ -5489,7 +5489,7 @@
             "value": "[[parameters('FDBackendHealthAlertState')]"
           }
         }
-      },      
+      },
       {
         "policyDefinitionReferenceId": "ALZ_FDBackendRequestLatency",
         "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy_FD_BackendRequestLatency_Alert')]",
@@ -5512,8 +5512,32 @@
         }
       },
       {
-        "policyDefinitionReferenceId": "ALZ_SQLHighCPU",
-        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy_SQL_CPU_Usage_Alert')]"
+        "policyDefinitionReferenceId": "ALZ_SQLAnomalousConnection",
+        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy-SQL-Anomalous-Connection-Alert')]"
+      },
+      {
+        "policyDefinitionReferenceId": "ALZ_SQLConnectionFalied",
+        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy-SQL-Connection-Falied-Alert')]"
+      },
+      {
+        "policyDefinitionReferenceId": "ALZ_SQLCPUUsage",
+        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy-SQL-CPU-Usage-Alert')]"
+      },
+      {
+        "policyDefinitionReferenceId": "ALZ_SQLDataSpaceUsed",
+        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy-Data-Space-Used-Alert')]"
+      },
+      {
+        "policyDefinitionReferenceId": "ALZ_SQLDeadlock",
+        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy-SQL-Deadlock-Alert')]"
+      },
+      {
+        "policyDefinitionReferenceId": "ALZ_SQLHighWorkerUsage",
+        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy-SQL-High-Worker-Usage-Alert')]"
+      },
+      {
+        "policyDefinitionReferenceId": "ALZ_SQLLowTempDBSpace",
+        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy-SQL-Low-TempDB-Space-Alert')]"
       }
     ],
     "policyType": "Custom",
