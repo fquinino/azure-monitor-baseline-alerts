@@ -5521,7 +5521,7 @@
       },
       {
         "policyDefinitionReferenceId": "ALZ_SQLCPUUsage",
-        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy_SQL_CPU_Usage_Alert')]"
+        "policyDefinitionId": "[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy_SQL_Data_Space_Used_Alert')]"
       },
       {
         "policyDefinitionReferenceId": "ALZ_SQLDataSpaceUsed",
