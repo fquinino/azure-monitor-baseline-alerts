@@ -5,7 +5,7 @@
     "_generator": {
       "name": "bicep",
       "version": "0.24.24.22086",
-      "templateHash": "9073391130416479521"
+      "templateHash": "16425816187769223071"
     }
   },
   "parameters": {
@@ -10178,7 +10178,7 @@
           },
           {
             "policyDefinitionReferenceId": "ALZ_SQLCPUUsage",
-            "policyDefinitionId": "[[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy_SQL_CPU_Usage_Alert')]"
+            "policyDefinitionId": "[[concat('/providers/Microsoft.Management/managementGroups/contoso', '/providers/Microsoft.Authorization/policyDefinitions/Deploy_SQL_Data_Space_Used_Alert')]"
           },
           {
             "policyDefinitionReferenceId": "ALZ_SQLDataSpaceUsed",
